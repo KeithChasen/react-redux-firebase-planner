@@ -9,3 +9,10 @@ export const signIn =
                 }).catch((error) => {
                     dispatch({'type': 'LOGIN_ERROR', error})
                 })
+
+export const signOut =
+    () =>
+        (dispatch, getState, {getFirebase}) =>
+            getFirebase().auth().signOut().then(() => {
+                dispatch({'type': 'SIGNOUT_SUCCESS'})
+            })
